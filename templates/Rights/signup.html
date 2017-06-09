@@ -1,0 +1,94 @@
+{% extends "Rights/base.html" %}
+{% load staticfiles %}
+
+{% block title %}注册{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+                {% if state == 'success' %}
+                    <div class="well">
+                        <h2 class="text-success text-center">注册成功！</h2>
+                    </div>
+                {% elif state == 'repeat_error' %}
+                    <div class="well">
+                        <h2 class="text-warning text-center">密码重复错误</h2>
+                    </div>
+                {% elif state == 'checkcode_error' %}
+                    <div class="well">
+                        <h2 class="text-warning text-center">验证码错误</h2>
+                    </div>
+                {% elif state == 'empty' %}
+                    <div class="well">
+                        <h2 class="text-warning text-center">密码不能为空</h2>
+                    </div>
+                {% elif state == 'too_short' %}
+                    <div class="well">
+                        <h2 class="text-warning text-center">密码不能少于6位</h2>
+                    </div>
+                {% elif state == 'phone_error' %}
+                    <div class="well">
+                        <h2 class="text-danger text-center">手机号错误</h2>
+                    </div>
+                {% elif state == 'user_exist' %}
+                    <div class="well">
+                        <h2 class="text-danger text-center">用户已经存在</h2>
+                    </div>
+                {% endif %}
+
+
+                <form method="POST" role="form" id="sign_up" class="form-horizontal">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="id_mobile">手机号码：</label>
+                        <div class="col-md-9">
+                            <input class="form-control" id="id_mobile" name="mobilephone"  type="text" required  autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="id_checked">验证码：</label>
+                        <div class="col-md-6">
+                            <input class="form-control" id="id_checked" name="checkcode" type="text" required autofocus>
+                        </div>
+                        <span class="">
+                            <input class="btn btn-default"  id="check" name="check" type="button" value="获取验证码"/>
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="id_user_name">用户名：</label>
+                        <div class="col-md-9">
+                            <input class="form-control" id="id_user_name" name="username" type="text" required  placeholder="用于登陆，可以包括大小写字母和下划线。">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"  for="id_passwd">密码：</label>
+                        <div class="col-md-9">
+                            <input class="form-control" id="id_passwd" name="password" type="password" required placeholder="密码不得少于六位，可以包括数字，大小写字母和下划线等。">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="col-md-3 control-label" for="id_repasswd">重复密码：</label>
+                        <div class="col-md-9">
+                            <input class="form-control" id="id_repasswd" name="repeat_password" type="password" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-4">
+                            <button form="sign_up" class="btn btn btn-primary btn-block" id="id_submit" name="regis" type="submit"  >
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 注册
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12 col-sm-10 col-sm-offset-1 ">
+                <p class="text-center">点击 “注册” 即表示您同意并愿意遵守用户协议 和 隐私政策 。</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
