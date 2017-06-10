@@ -1,0 +1,16 @@
+# Created by .ignore support plugin (hsz.mobi)
+将删除 .idea/dataSources.local.xml
+将删除 .idea/workspace.xml
+将删除 MyRights/__init__.pyc
+将删除 MyRights/settings.pyc
+将删除 MyRights/urls.pyc
+将删除 MyRights/wsgi.pyc
+将删除 Rights/__init__.pyc
+将删除 Rights/admin.pyc
+将删除 Rights/apps.pyc
+将删除 Rights/migrations/0001_initial.pyc
+将删除 Rights/migrations/0002_remove_arcitle_comment.pyc
+将删除 Rights/migrations/__init__.pyc
+将删除 Rights/models.pyc
+将删除 Rights/urls.pyc
+将删除 Rights/views.pyc
